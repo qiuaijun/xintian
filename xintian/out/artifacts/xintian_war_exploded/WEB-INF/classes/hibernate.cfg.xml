@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">
+            jdbc:mysql://rdsbxpqm40m22xw7t4vwy.mysql.rds.aliyuncs.com:3306/r2n1034e7p501q8t
+        </property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">r2n1034e7p501q8t</property>
+        <property name="connection.password">qiuaijun11</property>
+        <!-- DB schema will be updated if needed -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 打印SQL语句 -->
+        <property name="hibernate.show_sql">true</property>
+        <!-- 不格式化SQL语句 -->
+        <property name="hibernate.format_sql">false</property>
+        <!-- 为Session指定一个自定义策略 -->
+        <property name="hibernate.current_session_context_class">
+            org.springframework.orm.hibernate4.SpringSessionContext
+        </property>
+        <!-- 数据库方言 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!-- C3P0 JDBC连接池 -->
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">120</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">120</property>
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <property name="hibernate.c3p0.validate">true</property>
+        <!-- 映射文件 -->
+        <mapping resource="com/xintian/mall/model/user/Customer.hbm.xml"/>
+        <mapping resource="com/xintian/mall/model/product/ProductInfo.hbm.xml"/>
+        <mapping resource="com/xintian/mall/model/order/Order.hbm.xml"/>
+        <mapping resource="com/xintian/mall/model/order/OrderItem.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

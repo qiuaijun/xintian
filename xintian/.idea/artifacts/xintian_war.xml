@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="xintian:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/xintian_war</output-path>
+    <root id="archive" name="xintian_war.war">
+      <element id="artifact" artifact-name="xintian:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql:mysql-connector-java:5.1.35" />
+          <element id="library" level="project" name="Hibernate" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xintian.mall.model.user">
+  <class name="Customer" table="customer">
+	<!-- 注册用户ID -->
+	<id name="id" column="id" type="integer" >
+		<generator class="native"></generator>
+	</id>
+	<!-- 注册用户名称 -->
+	<property name="username" column="username" type="string" length="30">
+	</property>
+	<!-- 密码 --> 
+	<property name="password" column="password" type="string" length="20">
+	</property>
+	<!-- 真实姓名 -->
+	<property name="realname" column="realname" type="string" length="30">
+	</property>
+	<!--地址 -->
+	<property name="address" column="address" type="string" length="100">
+	</property>		
+	<!-- Email --> 
+	<property name="email" column="email" type="string" length="50">
+	</property>
+	<!--联系电话 -->
+	<property name="phone" column="phone" type="string" length="11">
+	</property>	
+  </class>
+</hibernate-mapping>

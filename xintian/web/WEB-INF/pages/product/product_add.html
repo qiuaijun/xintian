@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>新田商城-增加商品</title>
+    <script src="../../../ckeditor/ckeditor.js"></script>
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<form id="detailForm" method="post">
+    <textarea id="content" name="content"></textarea>
+    <input type="button" value="保存" id="save" onclick=' alert(CKEDITOR.instances.content.getData())'/>
+</form>
+<script type="text/javascript">
+
+    var editor = null;
+    window.onload = function () {
+        editor = CKEDITOR.replace('content'); //参数‘content’是textarea元素的name属性值，而非id属性值
+    }
+
+</script>
+</body>
+</html>

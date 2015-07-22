@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xintian.mall.model.product">
+  <class name="ProductInfo" table="productinfo">
+	<!-- 商品ID -->
+	<id name="id" type="integer" >
+	   <column name="id" />
+	   <!-- 设置主键生成方式，自动适应 -->
+	   <generator class="native"></generator>
+	</id>	
+	<!-- 商品编码 -->
+	<property name="goodsCode" type="string">
+		<column name="goodsCode" length="10">
+			<comment>商品编码</comment>
+		</column>
+	</property>
+	<!-- 商品名称 -->
+	<property name="name" type="string">
+		<column name="name" length="100">
+			<comment>商品名称</comment>
+		</column>
+	</property>
+	<!-- 型号参数 -->
+	<property name="model" type="string">
+		<column name="model" length="100">
+			<comment>型号参数</comment>
+		</column>
+	</property>		
+	<!-- 价格 -->
+	<property name="goodsPrice" type="double">
+		<column name="goodsPrice" >
+			<comment>价格</comment>
+		</column>
+	</property>
+	<!-- 优惠价格 -->
+	<property name="goodsPreferentialPrice" type="double">
+		<column name="goodsPreferentialPrice" >
+			<comment>优惠价格</comment>
+		</column>
+	</property>
+	<!-- 库存数量 -->
+	<property name="goodsStockNumber">
+		<column name="goodsStockNumber">
+			<comment>库存数量</comment>
+		</column>
+	</property>
+	<!-- 图片地址 -->	
+	<property name="goodsImageAddress" type="string">
+		<column name="goodsImageAddress">
+			<comment>图片地址</comment>
+		</column>		
+	</property>
+	<!-- 大图片地址 -->		
+	<property name="bigImageAddress" type="string">
+		<column name="bigImageAddress">
+			<comment>大图片地址</comment>
+		</column>		
+	</property>	
+	<!-- 上架时间 -->			
+	<property name="createTime">
+		<column name="createTime">
+			<comment>上架时间</comment>
+		</column>		
+	</property>
+	<!-- 是滞推荐 -->	
+	<property name="commend">
+		<column name="commend">
+			<comment>是否推荐</comment>
+		</column>		
+	</property>
+	<!-- 销售数量 -->
+	<property name="sellCount" >
+		<column name="sellCount">
+			<comment>售出数量</comment>
+		</column>
+	</property>
+  </class>
+</hibernate-mapping>

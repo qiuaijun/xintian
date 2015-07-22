@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.xintian.mall.model.image.ImageStoreEntity" table="image_store" schema=""
+           catalog="r2n1034e7p501q8t">
+        <id name="imageKey" column="image_key"/>
+        <property name="imageUrl" column="image_url"/>
+    </class>
+</hibernate-mapping>

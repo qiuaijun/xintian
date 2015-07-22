@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - r2n1034e7p501q8t@rdsbxpqm40m22xw7t4vwy.mysql.rds.aliyuncs.com" uuid="50d2a950-b663-415a-aa18-805b3bd19086">
+      <secret-storage>master_key</secret-storage>
+      <user-name>r2n1034e7p501q8t</user-name>
+      <schema-pattern>r2n1034e7p501q8t.*</schema-pattern>
+      <default-schemas>r2n1034e7p501q8t.*</default-schemas>
+    </data-source>
+  </component>
+</project>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.xintian.mall.model.order">
+  <class name="Order" table="orderinfo">
+	<id name="orderCode" type="string" length="30" column="orderCode">
+		<generator class="assigned"/>
+	</id>
+	<property name="name" type="string" column="name"  length="30"/>
+	<property name="address" type="string" column="address" length="80"/>
+	<property name="phone" type="string" column="phone" length="11"/>
+	<property name="totalPrice" column="totalPrice" type="java.lang.Double"/>
+	<property name="createTime" column="createTime" />
+	<property name="paymentWay" type="string" column="paymentWay" length="20"/>
+	<property name="orderState" type="string" column="orderState" length="20"/>
+	<!-- 多对一映射用户 -->
+	<many-to-one name="customer" column="id"/>
+	<!-- 一对多映射订单项 -->
+	<set name="orderItems" inverse="true" lazy="extra" cascade="all">
+		<key column="orderCode"/>
+		<one-to-many class="OrderItem"/>
+	</set>
+  </class>
+</hibernate-mapping>

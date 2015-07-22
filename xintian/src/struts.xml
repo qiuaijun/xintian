@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <!-- ognl可以使用静态方法 -->
+    <constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+    <package name="eshop-default" abstract="true" extends="struts-default">
+        <global-results>
+            <!-- 程序主页面 -->
+            <result name="index" type="redirectAction">index</result>
+            <!--用户注册 -->
+            <result name="register">/v2/user/customer_register.jsp</result>
+            <!--用户登录-->
+            <result name="customerLogin">/v2/user/customer_login.jsp</result>
+        </global-results>
+    </package>
+
+
+    <!-- 前台登录 -->
+    <package name="front" extends="eshop-default">
+        <!-- 配置拦截器 -->
+        <interceptors>
+            <!-- 验证用户登录的拦截器 -->
+            <interceptor name="loginInterceptor" class="com.xintian.mall.action.interceptor.CustomerLoginInteceptor"/>
+            <interceptor-stack name="customerDefaultStack">
+                <interceptor-ref name="loginInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <action name="index" class="indexAction">
+            <result>/v2/index.jsp</result>
+        </action>
+    </package>
+    <!-- 顾客Action -->
+    <package name="customer" extends="eshop-default" namespace="/customer">
+        <action name="customer_*" method="{1}" class="customerAction">
+            <result name="input">/v2/user/customer_register.jsp</result>
+        </action>
+    </package>
+
+
+    <!-- 商品Action -->
+    <package name="product" extends="eshop-default" namespace="/product">
+        <!-- 配置拦截器 -->
+        <interceptors>
+            <!-- 验证用户登录的拦截器 -->
+            <interceptor name="imageInterceptor" class="com.xintian.mall.action.interceptor.ImageInteceptor"/>
+            <interceptor-stack name="imageDefaultStack">
+                <interceptor-ref name="imageInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+
+        <action name="product_*" method="{1}" class="productAction">
+            <result name="list">/v2/product/product_list.jsp</result>
+            <result name="select">/v2/product/product_select.jsp</result>
+            <interceptor-ref name="imageInterceptor"/>
+        </action>
+    </package>
+
+</struts>

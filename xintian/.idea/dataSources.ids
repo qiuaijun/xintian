@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - r2n1034e7p501q8t@rdsbxpqm40m22xw7t4vwy.mysql.rds.aliyuncs.com" uuid="50d2a950-b663-415a-aa18-805b3bd19086">
+    <database-info product="MySQL" version="5.5.18.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="r2n1034e7p501q8t"/>
+    <table name="address_statistics" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="AddressName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="count" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="AddressName"/>
+    </table>
+    <table name="customer" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="realname" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="11" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FKE8B294FC55394259" table="orderinfo" schema="" catalog="r2n1034e7p501q8t" columns="id"/>
+    </table>
+    <table name="image_store" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="image_key" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image_url" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="image_key"/>
+    </table>
+    <table name="order_item" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="productId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="productName" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="productPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="productPreferentialPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="buyNum" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="orderCode" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK2D110D645F6C6886" columns="orderCode" ref-table="orderinfo" ref-schema="" ref-catalog="r2n1034e7p501q8t" ref-columns="orderCode" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="FK2D110D645F6C6886" unique="false" columns="orderCode"/>
+    </table>
+    <table name="orderinfo" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="orderCode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="80" scale="0" nullable="true" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="11" scale="0" nullable="true" jdbcType="12"/>
+      <column name="totalPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="createTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="paymentWay" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="orderState" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="orderCode"/>
+      <foreign-key name="FKE8B294FC55394259" columns="id" ref-table="customer" ref-schema="" ref-catalog="r2n1034e7p501q8t" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK2D110D645F6C6886" table="order_item" schema="" catalog="r2n1034e7p501q8t" columns="orderCode"/>
+      <index name="FKE8B294FC55394259" unique="false" columns="id"/>
+    </table>
+    <table name="productinfo" schema="" catalog="r2n1034e7p501q8t" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goodsCode" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12" remarks="5ZWG5ZOB57yW56CB"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="5ZWG5ZOB5ZCN56ew"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12" remarks="5Z6L5Y+35Y+C5pWw"/>
+      <column name="goodsPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" remarks="5Lu35qC8"/>
+      <column name="goodsPreferentialPrice" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8" remarks="5LyY5oOg5Lu35qC8"/>
+      <column name="goodsStockNumber" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="5bqT5a2Y5pWw6YeP"/>
+      <column name="goodsImageAddress" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="5Zu+54mH5Zyw5Z2A"/>
+      <column name="bigImageAddress" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="5aSn5Zu+54mH5Zyw5Z2A"/>
+      <column name="createTime" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93" remarks="5LiK5p625pe26Ze0"/>
+      <column name="commend" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" remarks="5piv5ZCm5o6o6I2Q"/>
+      <column name="sellCount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" remarks="5ZSu5Ye65pWw6YeP"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+  </data-source>
+</component>
